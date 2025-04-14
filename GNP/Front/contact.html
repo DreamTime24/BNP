@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact - BNP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Full Page Background Video (YouTube Embed) */
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #111;
+            color: #fff;
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 10px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .navbar a:hover {
+            background-color: #f4c542;
+            border-radius: 5px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #f4c542;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+        }
+
+        .contact-card {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            width: 25%;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .contact-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .contact-card h4 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #f4c542;
+        }
+
+        .contact-card p {
+            font-size: 1.2rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            width: 50%;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: #f4c542;
+            color: #111;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: 0.3s ease-in-out;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #f1a71c;
+        }
+
+        /* Map */
+        .contact-map {
+            margin-top: 40px;
+            position: relative;
+            height: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: #f4c542;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 1024px) {
+            .contact-details {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-card {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            .contact-form {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="leaders.html">Leaders</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="join.html">Join</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2>Contact BNP</h2>
+        <p>Get in touch with us through any of the following methods:</p>
+
+        <!-- Contact Details Section -->
+        <div class="contact-details">
+            <!-- Phone Card -->
+            <div class="contact-card">
+                <h4>Phone</h4>
+                <p>+880 123 456 789</p>
+            </div>
+
+            <!-- Email Card -->
+            <div class="contact-card">
+                <h4>Email</h4>
+                <p>info@bnp.org.bd</p>
+            </div>
+
+            <!-- National ID Card -->
+            <div class="contact-card">
+                <h4>National ID</h4>
+                <p>1234567890</p>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h3>Send us a Message</h3>
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <input type="text" id="phone" name="phone" placeholder="Your Phone Number" required>
+                <input type="text" id="nid" name="nid" placeholder="Your National ID" required>
+                <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
+                <input type="submit" value="Send Message">
+            </form>
+        </div>
+
+        <!-- Map Section -->
+        <div class="contact-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.153591426123!2d90.35926401523249!3d23.81347678456757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c70f8d8bbaab%3A0x24a648ae54c017a5!2sBNP%20Headquarters!5e0!3m2!1sen!2sbd!4v1657605983203!5m2!1sen!2sbd" frameborder="0" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 <a href="https://www.bnp.org.bd" target="_blank">Bangladesh Nationalist Party</a>. All rights reserved.</p>
+    </footer>
+
+    <!-- Contact Form Script -->
+    <script>
+        // Form submission handler (for illustration purposes, no real backend)
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert("Your message has been sent. We will get back to you shortly.");
+            document.getElementById('contactForm').reset();
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BNP Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #101010;
+            color: #fff;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #111;
+            color: #fff;
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 10px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .navbar a:hover {
+            background-color: #f4c542;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('assets/images/hero.jpg') center center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 60px 20px;
+            background-color: #181818;
+            text-align: center;
+        }
+
+        .gallery h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #f4c542;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .gallery-item:hover img,
+        .gallery-item:hover video {
+            transform: scale(1.1);
+        }
+
+        /* Modal Lightbox Styling */
+        .modal,
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .modal img,
+        .video-modal video {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: #f4c542;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="leaders.html">Leaders</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="join.html">Join</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to BNP Gallery</h1>
+        <p>Explore the history, leaders, and achievements of BNP</p>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <h2>Media</h2>
+        <div class="gallery-grid">
+            <!-- Example Image Item -->
+            <div class="gallery-item" onclick="openLightbox('assets/images/ziaur_rahman.jpg')">
+                <img src="assets/images/ziaur_rahman.jpg" alt="Ziaur Rahman">
+            </div>
+
+            <!-- Example Video Item -->
+            <div class="gallery-item" onclick="openVideoModal('assets/videos/bnp_history.mp4')">
+                <video src="assets/videos/bnp_history.mp4" muted></video>
+            </div>
+
+            <!-- Add more images and videos here -->
+        </div>
+    </section>
+
+    <!-- Modal for Images -->
+    <div id="lightbox" class="modal">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        <img id="lightboxImage" src="" alt="Lightbox Image">
+    </div>
+
+    <!-- Modal for Videos -->
+    <div id="videoModal" class="video-modal">
+        <span class="close-btn" onclick="closeVideoModal()">&times;</span>
+        <video id="videoPlayer" controls></video>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 <a href="https://www.bnp.org.bd" target="_blank">Bangladesh Nationalist Party</a>. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Open Lightbox for Images
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            lightbox.style.display = 'flex';
+            lightboxImage.src = imageSrc;
+        }
+
+        // Close Lightbox
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Open Video Modal
+        function openVideoModal(videoSrc) {
+            const videoModal = document.getElementById('videoModal');
+            const videoPlayer = document.getElementById('videoPlayer');
+            videoModal.style.display = 'flex';
+            videoPlayer.src = videoSrc;
+            videoPlayer.play();
+        }
+
+        // Close Video Modal
+        function closeVideoModal() {
+            document.getElementById('videoModal').style.display = 'none';
+            document.getElementById('videoPlayer').pause();
+            document.getElementById('videoPlayer').currentTime = 0;
+        }
+    </script>
+
+</body>
+
+</html>
